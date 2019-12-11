@@ -1,3 +1,15 @@
 # English strings go here for Rails i18n
 en:
-  # my_label: "My label"
+    # my_label: "My label"
+    label_purchase_dashboard: "Purchase Dashboard"
+    label_status_based_issue_count: "Status-wise Issue Count"
+    label_serial_no: "No."
+    label_issue_status: "Status"
+    label_issue_count: "Issue Count"
+    label_total: "Total"
+    label_purchase_status_based_issue_count: "Purchase Status Based Issue Count"
+    label_purchase_status: "Purchase Status"
+    label_order_type_based_issue_count: "Order Type Based Issue Count"
+    label_order_type: "Order Type"
+    label_priority_based_issue_count: "Priority Based Issue Count"
+    label_priority: "Priority"

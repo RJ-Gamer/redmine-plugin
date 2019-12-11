@@ -9,17 +9,17 @@
         }
     </style>
 </head>
-<h1 class="h1"> Purchase Dashboard </h1>
+<h1 class="h1"><%= l(:label_purchase_dashboard) %></h1>
 
 <div class="container card-deck">
     <div class="issues box">
-        <h4 class="icon icon-issue"> Status-wise Issue Count </h4>
+        <h4 class="icon icon-issue"><%= l(:label_status_based_issue_count) %></h4>
         <table class="list issue-report">
             <thead>
                 <tr>
-                    <th> No. </th>
-                    <th> Purchase Issue Status </th>
-                    <th> Purchase Issue Count </th>
+                    <th><%= l(:label_serial_no) %></th>
+                    <th><%= l(:label_issue_status) %></th>
+                    <th><%= l(:label_issue_count)%></th>
                 </tr>
             </thead>
             <tbody>
@@ -35,7 +35,7 @@
                 </tr>
                 <% end %>
                 <tr class="card-footer">
-                    <td> Total </td>
+                    <td><%= l(:label_total)%></td>
                     <td></td>
                     <td><%= link_to @purchase_issues_count, issues_path(@purchase_issues, :set_filter => 1, :tracker_id => 5, :status_id => "*")%></td>
                 </tr>
@@ -46,13 +46,13 @@
     <br>
 
     <div class="issues box">
-        <h4 class="icon icon-issue"> Purchase Status Based Issue Count </h4>
+        <h4 class="icon icon-issue"><%= l(:label_purchase_status_based_issue_count) %></h4>
         <table class="list issue-report hide-first-row">
             <thead>
                 <tr>
-                    <th> No. </th>
-                    <th> Purchase Status </th>
-                    <th> Purchase Status Issue Count </th>
+                    <th><%= l(:label_serial_no) %></th>
+                    <th><%= l(:label_purchase_status) %></th>
+                    <th><%= l(:label_issue_count) %></th>
                 </tr>
             </thead>
             <tbody>
@@ -72,13 +72,13 @@
 
 <div class="container card-deck">
     <div class="issues box">
-        <h4 class="icon icon-issue"> Order Type Based Issue Count </h4>
+        <h4 class="icon icon-issue"><%= l(:label_order_type_based_issue_count)%></h4>
         <table class="list issue-report hide-first-row">
             <thead>
                 <tr>
-                    <th> No. </th>
-                    <th> Order Type </th>
-                    <th> Order Type Issue Count </th>
+                    <th><%= l(:label_serial_no) %></th>
+                    <th><%= l(:label_order_type)%></th>
+                    <th><%= l(:label_issue_count) %> </th>
                 </tr>
             </thead>
             <tbody>
@@ -93,14 +93,16 @@
         </table>
     </div>
 
+    <br>
+
     <div class="issues box">
-        <h4 class="icon icon-issue"> Priority Based Issue Count </h4>
+        <h4 class="icon icon-issue"><%= l(:label_priority_based_issue_count) %></h4>
         <table class="list issue-report">
             <thead>
                 <tr>
-                    <th> No. </th>
-                    <th> Priority </th>
-                    <th> Issue Count </th>
+                    <th><%= l(:label_serial_no) %></th>
+                    <th><%= l(:label_priority) %></th>
+                    <th><%= l(:label_issue_count) %></th>
                 </tr>
             </thead>
             <tbody>
@@ -114,7 +116,7 @@
                 </tr>
                 <% end %>
                 <tr class="card-footeer">
-                    <td> Total </td>
+                    <td><%= l(:label_total) %></td>
                     <td></td>
                     <td><%= link_to @purchase_issues_count, issues_path(@purchase_issues, :set_filter => 1, :tracker_id => 5, :status_id => "*")%></td>
                 </tr>
