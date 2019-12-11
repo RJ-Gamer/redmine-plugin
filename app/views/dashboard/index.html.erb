@@ -1,0 +1,128 @@
+<!-- <%= stylesheet_link_tag "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"  %> -->
+<head>
+    <style media="screen">
+        .hide-first-row tbody tr:nth-child(1){
+            display: none;
+        }
+        .container {
+            width: 100% !important;
+        }
+    </style>
+</head>
+<h1 class="h1"> Purchase Dashboard </h1>
+
+<div class="container card-deck">
+    <div class="issues box">
+        <h4 class="icon icon-issue"> Status-wise Issue Count </h4>
+        <table class="list issue-report">
+            <thead>
+                <tr>
+                    <th> No. </th>
+                    <th> Purchase Issue Status </th>
+                    <th> Purchase Issue Count </th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @statuses.each_with_index do |status, index| %>
+                <tr>
+                    <td><%= index + 1 %></td>
+                    <!-- click to get on issue status page  -->
+                    <!-- <td><%= link_to status.name, issue_statuses_path %></td> -->
+                    <td><%= link_to status.name, issues_path(@sorted_by_status_id,
+                        :set_filter => 1, :tracker_id => 5, :status_id => status.id) %></td>
+                    <td><%= link_to @issues_by_statuses[status].to_i, issues_path(@sorted_by_status_id,
+                    :set_filter => 1, :tracker_id => 5, :status_id => status.id)%></td>
+                </tr>
+                <% end %>
+                <tr class="card-footer">
+                    <td> Total </td>
+                    <td></td>
+                    <td><%= link_to @purchase_issues_count, issues_path(@purchase_issues, :set_filter => 1, :tracker_id => 5, :status_id => "*")%></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <br>
+
+    <div class="issues box">
+        <h4 class="icon icon-issue"> Purchase Status Based Issue Count </h4>
+        <table class="list issue-report hide-first-row">
+            <thead>
+                <tr>
+                    <th> No. </th>
+                    <th> Purchase Status </th>
+                    <th> Purchase Status Issue Count </th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @issues_count_by_purchase_status.each_with_index do |purchase_status, index| %>
+                    <tr>
+                        <td><%= index %></td>
+                        <td><%= link_to purchase_status[0], issues_path(@sorted_by_purchase_status) %></td>
+                        <td><%= link_to purchase_status[1].to_i, issues_path(@sorted_by_purchase_status, :set_filter => 1, :tracker_id => 5, :status_id => "*", :cf_26 => purchase_status[0].to_s)%></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<br>
+
+<div class="container card-deck">
+    <div class="issues box">
+        <h4 class="icon icon-issue"> Order Type Based Issue Count </h4>
+        <table class="list issue-report hide-first-row">
+            <thead>
+                <tr>
+                    <th> No. </th>
+                    <th> Order Type </th>
+                    <th> Order Type Issue Count </th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @issues_count_by_order_type.each_with_index do |order_type, index| %>
+                    <tr>
+                        <td><%= index %></td>
+                        <td><%= link_to order_type[0], issues_path(@order_type_issues) %></td>
+                        <td><%= link_to order_type[1].to_i, issues_path(@order_type_issues, :set_filter => 1, :tracker_id => 5, :status_id => "*", :cf_125 => order_type[0].to_s)%></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="issues box">
+        <h4 class="icon icon-issue"> Priority Based Issue Count </h4>
+        <table class="list issue-report">
+            <thead>
+                <tr>
+                    <th> No. </th>
+                    <th> Priority </th>
+                    <th> Issue Count </th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @priorities.each_with_index do |priority, index| %>
+                <tr>
+                    <td><%= index + 1 %></td>
+                    <td><%= link_to priority.name, issues_path(@issues_by_priority,
+                        :set_filter => 1, :tracker_id => 5, :status_id => "*", :priority_id => priority.id) %></td>
+                    <td><%= link_to @issues_count_by_priority[priority.id].to_i, issues_path(@issues_by_priority,
+                    :set_filter => 1, :tracker_id => 5, :status_id => "*", :priority_id => priority.id)%></td>
+                </tr>
+                <% end %>
+                <tr class="card-footeer">
+                    <td> Total </td>
+                    <td></td>
+                    <td><%= link_to @purchase_issues_count, issues_path(@purchase_issues, :set_filter => 1, :tracker_id => 5, :status_id => "*")%></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!--
+<%= javascript_tag "https://code.jquery.com/jquery-3.4.1.slim.min.js" %>
+<%= javascript_tag "https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" %>
+<%= javascript_tag "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" %> -->
