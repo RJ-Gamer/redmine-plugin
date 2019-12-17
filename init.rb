@@ -1,6 +1,6 @@
 Redmine::Plugin.register :dashboard do
     name 'Dashboard plugin'
-    author 'Rajat Jog'
+    author 'Author name'
     description 'This is a plugin for Redmine'
     version '0.0.1'
     url 'http://example.com/path/to/plugin'
